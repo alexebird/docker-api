@@ -4,8 +4,8 @@ class Docker::Event
 
   attr_accessor :status, :id, :from, :time
 
-  def initialize(status, id, from, time)
-    @status, @id, @from, @time = status, id, from, time
+  def initialize(status, id, from, time, timeNano)
+    @status, @id, @from, @time, @timeNano = status, id, from, time, timeNano
   end
 
   def to_s
@@ -33,7 +33,8 @@ class Docker::Event
         json['status'],
         json['id'],
         json['from'],
-        json['time']
+        json['time'],
+        json['timeNano']
       )
     end
   end
